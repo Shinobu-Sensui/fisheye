@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>Fisheye - Photographe</title>
+    <!-- CSS -->
+    <link href="./css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="./css/style.css" rel="stylesheet" type="text/css" />
+    <link href="./css/photographer.css" rel="stylesheet" type="text/css" />
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet" />
+    <!-- CDN Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="page">
+        <!-- Header -->
+        <header>
+            <a href="./index.html">
+                <img src="assets/images/logo.webp" class="logo" alt="Fisheye Home page" aria-label="Return to home page"/>
+            </a>
+        </header>
+        <!-- Main -->
+        <main>
+            <section class="main_about"></section>
+            <section class="main_content">
+                <div class="main_content_filter">
+                    <h2>Trier par</h2>
+                    <div class="filter_section" >
+                        <div class="dropdown">
+                            <button class="btn_drop" type="button" role="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="filter options" aria-label="Sort by">
+                                <span id="current_filter">Titre</span>
+                                <span class="fa-solid fa-chevron-up" aria-hidden="true"></span>
+                            </button>
+
+                            <ul class="dropdown_content" aria-hidden="true">
+                                <li role="option">
+                                    <button type="button" tabindex="-1" aria-label="Sort by title">Titre</button>
+                                </li>
+                                <li role="option">
+                                    <button type="button" tabindex="-1" aria-label="Sort by popularity">Popularité</button>
+                                </li>
+                                <li role="option">
+                                    <button type="button" tabindex="-1" aria-label="Sort by date">Date</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="main_content_medias"></div>
+            </section>
+        </main>
+        <!-- Modal Form -->
+        <div class="modal_wrapper wrapper" aria-modal="true" role="dialog">
+            <div class="modal_form" aria-describedby="formTitle">
+                <div class="modal_form_title">
+                    <h2 id="formTitle">Contactez-moi <button  class="btn_close" type="button" aria-label="Close contact form"></button></h2>
+                    <p class="modal_form_name"></p>
+                </div> 
+                <form novalidate>
+                    <div class="form_content">
+                        <label id="firstname-label" for="firstname">Prénom <span aria-hidden="true">*</span></label>
+                        <input class="formField" aria-labelledby="firstname-label" type="text" id="firstname" name="firstname" maxlength="15" data-error="Minimum 3 caractères, maximum 15 caractères. Les chiffres et caractères spéciaux différents de - ne sont pas autorisés." required/>
+                        <span></span>
+                    </div>
+                    <div class="form_content">
+                        <label id="lastname-label" for="lastname">Nom <span aria-hidden="true">*</span></label>
+                        <input class="formField" aria-labelledby="lastname-label" type="text" id="lastname" name="lastname" maxlength="15" data-error="Minimum 3 caractères, maximum 15 caractères. Les chiffres et caractères spéciaux différents de - ne sont pas autorisés." required/>
+                        <span></span>
+                    </div>
+                    <div class="form_content">
+                        <label id="email-label" for="email">Email <span aria-hidden="true">*</span></label>
+                        <input class="formField" aria-labelledby="email-label" type="email" id="email" name="email" maxlength="100" data-error="Veuillez renseigner une adresse mail valide." required/>
+                        <span></span>
+                    </div>
+                    <div class="form_content">
+                        <label id="message-label" for="message">Votre message <span aria-hidden="true">*</span></label>
+                        <textarea class="formField" aria-labelledby="message-label" id="message" name="message" maxlength="200" data-error="Votre message doit contenir entre 20 et 200 caractères." required></textarea>
+                        <span></span>
+                    </div>
+                    <button class="btn btn_submit" type="submit" aria-label="Send">Envoyer</button>
+                </form>
+            </div>
+        </div>
+        <!-- Lightbox -->
+        <div class="lightbox_wrapper wrapper" aria-modal="true" role="dialog">
+            <div class="lightbox" aria-label="Media closeup view">
+                <button class="btn_close_lightbox btn_close" aria-label="Close dialog"></button>
+                <button class="btn_next" aria-label="Next media"></button>
+                <button class="btn_previous" aria-label="Previous media"></button>
+                <figure class="lightbox_media" role="media" aria-label="Current Media"></figure>
+            </div> 
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="./scripts/pages/photographerPage.js" type="module"></script>
+</body>
+</html>
