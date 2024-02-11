@@ -4,6 +4,7 @@ export const openCloseFormContact = () => {
     const closeModal = document.querySelector(".btn_close");
     contactBtn.addEventListener("click", () => {
         contactModal.style.display = "flex";
+        // On gère le focus sur la croix et on ferme lorsque l'on appuie sur espace
         closeModal.focus();
     });
     closeModal.addEventListener("click", () => contactModal.style.display = "none");
