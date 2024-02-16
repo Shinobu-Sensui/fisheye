@@ -1,20 +1,24 @@
 {
-    "root": true,
+    "root": true, // Définit que ce fichier est la configuration racine ESLint.
+
     "parserOptions": {
-        "ecmaVersion": 2018,
-        "sourceType": "module",
-        "parser": "babel-eslint"
+        "ecmaVersion": 2018, // Définit la version ECMAScript utilisée (2018).
+        "sourceType": "module", // Indique que le code est écrit en utilisant le système de modules.
+        "parser": "babel-eslint" // Utilise le parseur Babel pour analyser le code.
     },
+
     "env": {
-        "browser": true,
-        "es6": true
+        "browser": true, // Indique que le code s'exécute dans un environnement de navigateur.
+        "es6": true // Active les fonctionnalités ES6 (ECMAScript 2015).
     },
+
     "extends": [
-        "eslint:recommended"
+        "eslint:recommended" // Étend les règles recommandées ESLint.
     ],
+
     "rules": {
-        "no-extra-semi": "off",
-        "no-useless-escape": "off",
-        "no-console": "error" 
+        "no-extra-semi": "off", // Désactive la vérification des points-virgules supplémentaires.
+        "no-useless-escape": "off", // Désactive la vérification des échappements inutiles.
+        "no-console": "error" // Signale une erreur si la console est utilisée dans le code.
     }
 }
