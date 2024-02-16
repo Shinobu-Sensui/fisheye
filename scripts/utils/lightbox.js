@@ -1,3 +1,5 @@
+import Moove from "./Moove.js";
+
 export const displayLightbox = (medias) => {
   const lightboxWrapper = document.querySelector(".lightbox_wrapper");
   const btnClose = document.querySelector(".btn_close_lightbox");
@@ -8,44 +10,17 @@ export const displayLightbox = (medias) => {
     document.querySelectorAll(".gallery_card a")
   );
 
-// gestion des déplacements avec tab
+  // gestion des déplacements avec tab
   const linkAndBtnInSection = [...document.querySelectorAll("button, a")];
-
-  const tabMoveElements = {
-    index: 0,
-    linkAndBtnInSection: null,
-    maxIndex: 0,
-    switch: (index, maxIndex, tab) => {
-      if (index <= maxIndex) {
-        ++tabMoveElements.index;
-        if (tabMoveElements.index === maxIndex) {
-          tabMoveElements.index = 0;
-        }
-        return tab[tabMoveElements.index];
-      }
-    },
-  };
-
-  tabMoveElements.linkAndBtnInSection = linkAndBtnInSection;
-  tabMoveElements.maxIndex = tabMoveElements.linkAndBtnInSection.length - 1;
-
-
+  const tabMoveElements = new Moove(linkAndBtnInSection);
   const tabMove = (e) => {
     e.preventDefault();
-    tabMoveElements
-      .switch(
-        tabMoveElements.index,
-        tabMoveElements.maxIndex,
-        tabMoveElements.linkAndBtnInSection
-      )
-      .focus();
+    tabMoveElements.switch().focus();
   };
-
 
   const photographer = medias.photographer;
   const mediasList = medias.medias;
   let currentIndex = 0;
-
 
   mediaProvider.forEach((media) => {
     media.addEventListener("click", () => {
