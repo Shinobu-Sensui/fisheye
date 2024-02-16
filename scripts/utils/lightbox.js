@@ -8,6 +8,7 @@ export const displayLightbox = (medias) => {
     document.querySelectorAll(".gallery_card a")
   );
 
+// gestion des déplacements avec tab
   const linkAndBtnInSection = [...document.querySelectorAll("button, a")];
 
   const tabMoveElements = {
@@ -28,6 +29,7 @@ export const displayLightbox = (medias) => {
   tabMoveElements.linkAndBtnInSection = linkAndBtnInSection;
   tabMoveElements.maxIndex = tabMoveElements.linkAndBtnInSection.length - 1;
 
+
   const tabMove = (e) => {
     e.preventDefault();
     tabMoveElements
@@ -37,17 +39,13 @@ export const displayLightbox = (medias) => {
         tabMoveElements.linkAndBtnInSection
       )
       .focus();
-
-    console.log(tabMoveElements);
-
-    // On récupère les balises qui nous intéresse pour naviguer avec tab
-
-    console.log("i press tab");
   };
+
 
   const photographer = medias.photographer;
   const mediasList = medias.medias;
   let currentIndex = 0;
+
 
   mediaProvider.forEach((media) => {
     media.addEventListener("click", () => {
