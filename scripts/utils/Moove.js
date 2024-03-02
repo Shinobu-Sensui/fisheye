@@ -7,10 +7,14 @@ export default class Moove {
   switch() {
     if (this.index <= this.maxIndex) {
       ++this.index;
-      if (this.index === this.maxIndex) {
+      if (this.index - 1 === this.maxIndex) {
         this.index = 0;
       }
       return this.data[this.index];
     }
   }
 }
+
+
+
+

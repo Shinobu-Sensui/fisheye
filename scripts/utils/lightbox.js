@@ -11,11 +11,36 @@ export const displayLightbox = (medias) => {
   );
 
   // gestion des déplacements avec tab
-  const linkAndBtnInSection = [...document.querySelectorAll("button, a")];
-  const tabMoveElements = new Moove(linkAndBtnInSection);
+  const wrapper = document.querySelectorAll(".wrapper");
+  const form = wrapper[0];
+
+  const globaLinkAndBtn = [...document.querySelectorAll("button, a")];
+  const globaMoveElements = new Moove(globaLinkAndBtn);
+  
+  const formInputAndBtn = [...form.querySelectorAll(".formField, button")];
+  const tabFormMoveElements = new Moove(formInputAndBtn);
+  
+  const boxBtn = [...lightboxWrapper.querySelectorAll("button")]
+  const boxMoveElements = new Moove(boxBtn)
+  
+
   const tabMove = (e) => {
     e.preventDefault();
-    tabMoveElements.switch().focus();
+
+    const wrapperIsOpen = [...wrapper].some(
+      (element) => element.style.display === "flex"
+    );
+
+    if (wrapperIsOpen) {
+      if (form.style.display === "flex") {
+        console.log(tabFormMoveElements);
+        tabFormMoveElements.switch().focus();
+      } else {
+        boxMoveElements.switch().focus()
+      }
+    } else {
+      globaMoveElements.switch().focus();
+    }
   };
 
   const photographer = medias.photographer;

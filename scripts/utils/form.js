@@ -7,7 +7,9 @@ export const openCloseFormContact = () => {
         // On gère le focus sur la croix et on ferme lorsque l'on appuie sur espace
         closeModal.focus();
     });
-    closeModal.addEventListener("click", () => contactModal.style.display = "none");
+    closeModal.addEventListener("click", () => {
+        contactModal.style.display = "none"
+    });
 };
 
 export const validateForm = () => {

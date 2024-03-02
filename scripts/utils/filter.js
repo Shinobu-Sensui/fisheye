@@ -7,7 +7,7 @@ export const openCloseFilterMenu = () => {
   const filterMenuButton = document.querySelector(".btn_drop");
   const filterButtons = document.querySelectorAll(".dropdown_content button");
   const btns = document.querySelectorAll(".dropdown button");
-  
+
   // on écoute le click du bouton trier & on ferme les les types de tri non utilisés
   for (let btn of btns) {
     btn.addEventListener("click", () => {
